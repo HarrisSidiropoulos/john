@@ -36,7 +36,7 @@
   text-align: center;
   bottom: 0;
   a {
-    color: $gray;
+    color: white;
     &:hover, &:focus {
       text-decoration: none;
       color: white;
@@ -49,7 +49,7 @@
       padding: 20px 0;
       display: inline-block;
       clear: both;
-      @extend .sprite_more-arrow;
+      @extend .sprite_more-arrow-hover;
       @extend .glyphicon;
     }
     &:hover, &:focus {
