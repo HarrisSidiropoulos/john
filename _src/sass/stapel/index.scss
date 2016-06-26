@@ -4,11 +4,11 @@
   padding: 0;
   box-shadow: none;
   min-height: 76px;
-  @media (min-width: $screen-lg) {
-    margin-left: 11%;
-    max-width: 79%;
-  }
+  margin-top: 40px;
   h2, h3 {
+    margin: 10px 0;
+  }
+  h3 {
     margin: 10px 0;
   }
 }
