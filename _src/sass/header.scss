@@ -46,7 +46,7 @@ header.navbar {
     li a {
       color: white;
       border-left: 1px solid rgba($gray-light, .3);
-      &:hover {
+      &:hover, &:focus {
         background-color: #705080;
       }
     }
