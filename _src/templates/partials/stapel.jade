@@ -10,6 +10,10 @@ section.main
             h2 Φωτογραφίες
             h3#name
     ul#tp-grid.tp-grid
+      each image in ["IMG_20160416_145024", "IMG_20160416_145034", "IMG_20160416_145044", "IMG_20160416_145050", "IMG_20160416_145056", "IMG_20160416_145059", "IMG_20160416_145103"]
+        li(data-pile='Γενέθλια')
+          a(href='#')
+            img(src='assets/photos/albums/birthday/#{image}-thumbnail.jpg')
       each album in [1,2,3,4,5,6]
         each photo in [1,2,3,4,5,6,7,8]
           li(data-pile='Album #{album}')
