@@ -1,5 +1,5 @@
 - var mainMenuActiveIndex = -1;
-- var brandName = "john";
+- var brandName = "Γιάννης & Δήμητρα";
 - var pageTitle = brandName;
 doctype html
 html
@@ -7,5 +7,29 @@ html
     include partials/header
   body
     include partials/header-body
-
+    .section-image(style="background-image:url('assets/images/img001.jpg')")
+      h1
+        span
+      .section-image-more
+        a.section-image-more-btn(href="javascript:")
+          span.section-image-more-btn-txt.text-uppercase ΠΕΡΙΣΣΟΤΕΡΑ
+          br
+          span.more-arrow-icon
+    .container
+      .page-description
+        .content-html
+          p Η παρουσία σας μια ευχή και ένα σας χαμόγελο θα ομορφύνουν το γάμο μας που θα γίνει την Κυριακή 17 Σεπτεμβρίου και ώρα 19.00 στον Ιερό Ναό Τριών Ιεραρχώ Ευόσμου
+      .internal-links
+        .card.small
+          a.card-container(style="background-image: url(assets/images/img001.jpg)" href="#")
+            h5
+              .text Η Εκκλησία
+        .card.small
+          a.card-container(style="background-image: url(assets/images/img001.jpg)" href="#")
+            h5
+              .text Η τοποθεσία
+        .card.small
+          a.card-container(href="#")
+            h5.full
+              .text Bla Bla
     include partials/footer
