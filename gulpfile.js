@@ -21,6 +21,11 @@ var gulp = require('gulp'),
     crypto = require('crypto'),
     _ = require('lodash'),
 
+    imageResize = require('gulp-image-resize'),
+    rename = require("gulp-rename"),
+    parallel = require("concurrent-transform"),
+    os = require("os"),
+
     del = require('del'),
     vinylPaths = require('vinyl-paths'),
 
@@ -247,6 +252,27 @@ gulp.task('clean-images', function() {
   });
 });
 
+gulp.task('photos', function() {
+  return gulp.src([MOCKUPS+'/photos/**'])
+    .pipe(duration('photos'))
+    .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, rev()))
+    .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos').on('error', gutil.log))
+    .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, rev.manifest()))
+    .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, gulp.dest(BUILD+'/rev/photos')))
+});
+gulp.task("thumbs", function () {
+  gulp.src(MOCKUPS+"/photos/**")
+    .pipe(parallel(
+      imageResize({ width : 308, height: 200, crop: true }),
+      os.cpus().length
+    ))
+    .pipe(rename(function (path) {
+      if (path.extname==="jpg" || path.extname==="png" || path.extname==="gif")
+        path.basename += "-thumbnail";
+    }))
+    .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos'));
+});
+
 gulp.task('json', function() {
   var imagesManifest  = env === PRODUCTION && USE_FINGERPRINTING ? (JSON.parse(fs.readFileSync("./"+BUILD+'/rev/images/rev-manifest.json', "utf8"))) : {},
       soundsManifest = env === PRODUCTION && USE_FINGERPRINTING ? (JSON.parse(fs.readFileSync("./"+BUILD+'/rev/sounds/rev-manifest.json', "utf8"))) : {};;
@@ -323,12 +349,12 @@ gulp.task('live', ['json', 'coffee', 'jade', 'sass', 'watch']);
 gulp.task('editor', ['editorSass']);
 
 gulp.task('build', function() {
-  runSequence(['clean-images'],['fonts','images','sounds','spriteSass','autoVariables'],['json', 'fonts','coffee','sass'],['jade']);
+  runSequence(['clean-images'],['fonts','images','photos','thumbs','sounds','spriteSass','autoVariables'],['json', 'fonts','coffee','sass'],['jade']);
 });
 gulp.task('server', ['connect', 'watch']);
 gulp.task('production', function() {
   env = PRODUCTION;
-  runSequence(['clean-json','clean-images','clean-sounds','clean-css', 'clean-js'],['images','sounds','json','fonts'],['coffee','sass'],['jade']);
+  runSequence(['clean-json','clean-images','clean-sounds','clean-css', 'clean-js'],['images','photos','thumbs','sounds','json','fonts'],['coffee','sass'],['jade']);
 });
 
 //gulp watch --jade=filename
