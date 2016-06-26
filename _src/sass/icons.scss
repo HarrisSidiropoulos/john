@@ -21,7 +21,7 @@ $hover-icons: facebook twitter pinterst google-plus youtube vimeo;
   }
 }
 
-$simple-icons: address logo phone fax email;
+$simple-icons: dove church two-hearts;
 
 @each $simple-icon in $simple-icons {
   @media (-webkit-min-device-pixel-ratio: 1.1), (min-device-pixel-ratio: 1.1),  (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
@@ -35,4 +35,8 @@ $simple-icons: address logo phone fax email;
     margin-bottom: -1px;
     margin-right: 5px;
   }
+}
+.two-hearts-icon {
+  margin-top: -10px;
+  margin-bottom: -5px;
 }
