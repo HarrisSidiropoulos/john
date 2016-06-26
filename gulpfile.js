@@ -245,7 +245,7 @@ gulp.task('clean-images', function() {
 
     gulp.src(getOutputDir()+ASSETS+'/images')
       .pipe(vp)
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest(getOutputDir()+ASSETS+'/images'))
       .on('end', function () {
         del(vp.paths).then(resolve).catch(reject);
       });
@@ -253,22 +253,36 @@ gulp.task('clean-images', function() {
 });
 
 gulp.task('photos', function() {
+  var metr = 1;
   return gulp.src([MOCKUPS+'/photos/**'])
     .pipe(duration('photos'))
     .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, rev()))
+    .pipe(rename(function (path) {
+      if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
+        path.basename = "thumb"+metr;
+        metr++;
+      } else {
+        metr=1;
+      }
+    }))
     .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos').on('error', gutil.log))
     .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, rev.manifest()))
     .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, gulp.dest(BUILD+'/rev/photos')))
 });
 gulp.task("thumbs", function () {
+  var metr = 1;
   gulp.src(MOCKUPS+"/photos/**")
     .pipe(parallel(
       imageResize({ width : 308, height: 200, crop: true }),
       os.cpus().length
     ))
     .pipe(rename(function (path) {
-      if (path.extname==="jpg" || path.extname==="png" || path.extname==="gif")
-        path.basename += "-thumbnail";
+      if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
+        path.basename = "thumb"+metr+"-thumbnail";
+        metr++;
+      } else {
+        metr=1;
+      }
     }))
     .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos'));
 });
@@ -306,7 +320,7 @@ gulp.task('clean-sounds', function() {
 
     gulp.src(getOutputDir()+ASSETS+'/sounds')
       .pipe(vp)
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest(getOutputDir()+ASSETS+'/sounds'))
       .on('end', function () {
         del(vp.paths).then(resolve).catch(reject);
       });
