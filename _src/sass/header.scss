@@ -39,6 +39,13 @@ header.navbar {
   }
   .navbar-nav {
     @extend .pull-right;
+
+    li a {
+      border-left: 1px solid rgba($gray-light, .3);
+    }
+    li:last-child a {
+      border-right: 1px solid rgba($gray-light, .3);
+    }
   }
 }
 

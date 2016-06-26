@@ -1,0 +1,14 @@
+@import "stapel";
+
+.topbar {
+  padding: 0;
+  box-shadow: none;
+  min-height: 76px;
+  @media (min-width: $screen-lg) {
+    margin-left: 11%;
+    max-width: 79%;
+  }
+  h2, h3 {
+    margin: 10px 0;
+  }
+}
