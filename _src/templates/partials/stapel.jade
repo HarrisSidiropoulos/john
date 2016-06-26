@@ -15,10 +15,10 @@ section.main
       each album in albums
         - for (var i=1; i<=album.imgs;i++)
           li(data-pile=album.name)
-            a(href='#' data-img="assets/photos/albums/#{album.path}/thumb#{i}.jpg")
+            a(href='javascript:' data-img="assets/photos/albums/#{album.path}/thumb#{i}.jpg")
               img(src='assets/photos/albums/#{album.path}/thumb#{i}-thumbnail.jpg')
       each album in [1,2,3,4,5]
         each photo in [1,2,3,4,5,6,7,8]
           li(data-pile='Album #{album}')
-            a(href='#')
+            a(href='javascript:')
               img(src='http://dummyimage.com/#{w}x#{h}/fff/000')
