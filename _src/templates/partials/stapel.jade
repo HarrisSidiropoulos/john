@@ -1,5 +1,7 @@
 - var w = 308;
 - var h = 200;
+- var albums =[{name: "Γενέθλια", path: 'birthday', imgs: 7}]
+
 section.main
   .wrapper
     .row
@@ -10,10 +12,11 @@ section.main
             h2 Φωτογραφίες
             h3#name
     ul#tp-grid.tp-grid
-      each image in [1,2,3,4,5,6,7]
-        li(data-pile='Γενέθλια')
-          a(href='#')
-            img(src='assets/photos/albums/birthday/thumb#{image}-thumbnail.jpg')
+      each album in albums
+        - for (var i=1; i<=album.imgs;i++)
+          li(data-pile=album.name)
+            a(href='#')
+              img(src='assets/photos/albums/#{album.path}/thumb#{i}-thumbnail.jpg')
       each album in [1,2,3,4,5,6]
         each photo in [1,2,3,4,5,6,7,8]
           li(data-pile='Album #{album}')
