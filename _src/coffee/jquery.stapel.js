@@ -318,7 +318,6 @@ $("body").append(require("./photoswipe-template.jade"))
 							h: $(this).find('a').attr("data-height") || 2992
 						});
 					});
-					console.log(index);
 					var options = {
 						index: index,
 						history: false,
