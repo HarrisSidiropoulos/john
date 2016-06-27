@@ -5,11 +5,10 @@ $.extend($.scrollTo.defaults, {
   duration: 500,
   interrupt: true
 });
-offset: 50;
+offset = 50;
 module.exports = ()->
   scroll = (item)->
     target = item.attr('href')
-    offset = $(target).hasClass('full-screen-container') ? 0 : 50;
     $(global).scrollTo($(target), 500, {offset: -offset})
     return false;
 
