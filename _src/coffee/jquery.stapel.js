@@ -555,7 +555,7 @@ $("body").append(require("./photoswipe-template.jade"))
 			// center the ul
 			lastItemTop = this.spread ? lastItemTop : accumT;
 			this.el.css( {
-				marginLeft : ml,
+				marginLeft : 5,
 				height : lastItemTop + this.itemSize.height
 			} );
 

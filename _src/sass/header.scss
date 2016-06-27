@@ -23,7 +23,7 @@ header.navbar {
       margin-bottom: 0;
     }
     & > .navbar-brand {
-      margin-left: 15px;
+      margin-left: 0;
       font-family: $font-secondary;
       font-size: 18px;
       color: white;
@@ -37,7 +37,7 @@ header.navbar {
     margin: 5px 5px 0 0;
   }
   .icon-bar {
-    background-color: $brand-primary;
+    background-color: white;
     height: 3px;
   }
   .navbar-nav {
@@ -52,6 +52,21 @@ header.navbar {
     }
     li:last-child a {
       border-right: 1px solid rgba($gray-light, .3);
+    }
+  }
+  @media (max-width: $screen-md) {
+    .navbar-collapse {
+      position: absolute;
+      background: $body-bg;
+      width: calc(100% + 30px);
+      top: 50px;
+      left: -15px;
+    }
+    .navbar-nav {
+      width: 100%;
+      &, a {
+        border: none !important;
+      }
     }
   }
 }

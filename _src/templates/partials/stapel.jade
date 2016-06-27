@@ -8,11 +8,10 @@ section.main
   .wrapper
     .row
       .col-md-12
-        .col-md-12
-          .topbar
-            span#close.back ←
-            h2 Φωτογραφίες
-            h3#name
+        .topbar
+          span#close.back ←
+          h2 Φωτογραφίες
+          h3#name
     ul#tp-grid.tp-grid
       each album in albums
         - for (var i=1; i<=album.imgs;i++)
