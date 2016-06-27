@@ -273,7 +273,7 @@ gulp.task("thumbs", function () {
   var metr = 1;
   gulp.src(MOCKUPS+"/photos/**")
     .pipe(parallel(
-      imageResize({ width : 310, height: 200, crop: true }),
+      imageResize({ width : 320, height: 200, crop: true }),
       os.cpus().length
     ))
     .pipe(rename(function (path) {
