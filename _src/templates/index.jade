@@ -7,7 +7,7 @@ html
     include partials/header
   body
     include partials/header-body
-    .section-image(style="background-image:url('assets/images/img001.jpg')")
+    section#home.section-image(style="background-image:url('assets/images/img001.jpg')")
       h1
         span
       .section-image-more
@@ -15,11 +15,13 @@ html
           span.section-image-more-btn-txt.text-uppercase ΠΕΡΙΣΣΟΤΕΡΑ
           br
           span.more-arrow-icon
-    .container
-      .page-description
-        .content-html
-          p Η παρουσία σας μια ευχή και ένα σας χαμόγελο θα ομορφύνουν το γάμο μας που θα γίνει την Κυριακή 17 Σεπτεμβρίου και ώρα 19.00 στον Ιερό Ναό Τριών Ιεραρχών Ευόσμου
-    .darken
+    section#prosklisi
+      .container
+        .row
+          .page-description
+            .content-html
+              p Η παρουσία σας μια ευχή και ένα σας χαμόγελο θα ομορφύνουν το γάμο μας που θα γίνει την Κυριακή 17 Σεπτεμβρίου και ώρα 19.00 στον Ιερό Ναό Τριών Ιεραρχών Ευόσμου
+    section#photos.darken
       .container
         .col-md-12
           include partials/stapel

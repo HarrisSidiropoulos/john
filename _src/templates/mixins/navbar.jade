@@ -3,11 +3,11 @@ mixin navbar(options)
   - var classes = options.classes || '';
   - var activeIndex = options.activeIndex || 0;
   - var id = options.id || 'top';
-  - var menus = options.menus || [[ { label:'Ο γάμος', href:'#' }, { label:'Η δεξίωση', href:'#' }, { label:'Φωτογραφίες', href:'#' }, { label:'Προσκλητήριο', href:'#' }]];
+  - var menus = options.menus || [[ { label:'Ο γάμος', href:'#prosklisi' }, { label:'Η δεξίωση', href:'#' }, { label:'Φωτογραφίες', href:'#photos' }]];
   header.navbar(class=classes, id=id)
     .navbar-header
       h1
-        a.navbar-brand(href='./' title=brandName)
+        a.navbar-brand(href='#home' title=brandName)
           span Γιάννης + Δήμητρα =
           span.two-hearts-icon.glyphicon
 
