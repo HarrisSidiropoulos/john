@@ -1,2 +1,2 @@
 #john
-http://polyptychon.github.io/john/
+harrissidiropoulos.github.io/john/
