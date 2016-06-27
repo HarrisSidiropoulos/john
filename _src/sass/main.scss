@@ -67,6 +67,17 @@ $pathToSpriteSVG : '../images/sprites.svg';
 @import "../../node_modules/bootstrap/assets/stylesheets/bootstrap/utilities";
 @import "../../node_modules/bootstrap/assets/stylesheets/bootstrap/responsive-utilities";
 
+// Components photoswipe
+@import "../../node_modules/photoswipe/src/css/main";
+$pswp__assets-path: '../images/';
+@import "../../node_modules/photoswipe/src/css/default-skin/default-skin";
+.pswp__caption__center {
+  text-align: center;
+}
+.pswp {
+  z-index: 11000;
+}
+
 @import "base";
 @import "sprites";
 @import "icons";

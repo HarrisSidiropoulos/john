@@ -9,6 +9,10 @@
  * http://www.codrops.com
  */
 global.$ = global.jQuery = $ = require("jquery");
+var PhotoSwipe = require("photoswipe");
+var PhotoSwipeUI_Default = require("photoswipe/dist/photoswipe-ui-default");
+
+$("body").append(require("./photoswipe-template.jade"))
 
 ;( function( $, window, undefined ) {
 	
@@ -288,17 +292,47 @@ global.$ = global.jQuery = $ = require("jquery");
 			this.items.on( 'click.stapel', function() {
 				
 				var $item = $( this );
-
 				if( !self.spread && $item.data( 'isPile' ) ) {
 
 					self.spread = true;
 					self.pileName = $item.data( 'pileName' );
 					self.options.onBeforeOpen( self.pileName );
 					self._openPile();
-					
-					return false;
 
+					return false;
+				} else {
+					var pileName = $item.attr('data-pile');
+					var src = $item.find('a').attr('href');
+					var filterItems = self.items.filter(function(index, item) {
+						return $(item).attr('data-pile')===pileName
+					});
+					var pileItems = [];
+					var index = 0;
+					filterItems.each(function(i) {
+						if ($(this).find('a').attr("href")===src) {
+							index = i;
+						}
+						pileItems.push({
+							src: $(this).find('a').attr("href"),
+							w: 4000,
+							h: 2992
+						});
+					});
+					console.log(index);
+					var options = {
+						index: index,
+						history: false,
+						barsSize: {top: 0, bottom: 0},
+						focus: true,
+						showHideOpacity: true,
+						bgOpacity: 1
+					};
+					var pswpElement = document.querySelectorAll('.pswp')[0];
+					var photoSwipe = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, pileItems, options);
+					photoSwipe.init();
+					return false;
 				}
+
 
 			} );
 
