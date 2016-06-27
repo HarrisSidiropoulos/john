@@ -314,8 +314,8 @@ $("body").append(require("./photoswipe-template.jade"))
 						}
 						pileItems.push({
 							src: $(this).find('a').attr("href"),
-							w: 4000,
-							h: 2992
+							w: $(this).find('a').attr("data-width") || 4000,
+							h: $(this).find('a').attr("data-height") || 2992
 						});
 					});
 					console.log(index);
