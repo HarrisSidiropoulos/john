@@ -287,6 +287,24 @@ gulp.task("thumbs", function () {
     .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos'));
 });
 
+gulp.task("largeThumbs", function () {
+  var metr = 1;
+  gulp.src(MOCKUPS+"/photos/**")
+    .pipe(parallel(
+      imageResize({ width : 1920, height: 1080, crop: true }),
+      os.cpus().length
+    ))
+    .pipe(rename(function (path) {
+      if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
+        path.basename = "thumb"+metr+"-1920x1080";
+        metr++;
+      } else {
+        metr=1;
+      }
+    }))
+    .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos'));
+});
+
 gulp.task('json', function() {
   var imagesManifest  = env === PRODUCTION && USE_FINGERPRINTING ? (JSON.parse(fs.readFileSync("./"+BUILD+'/rev/images/rev-manifest.json', "utf8"))) : {},
       soundsManifest = env === PRODUCTION && USE_FINGERPRINTING ? (JSON.parse(fs.readFileSync("./"+BUILD+'/rev/sounds/rev-manifest.json', "utf8"))) : {};;
@@ -363,12 +381,12 @@ gulp.task('live', ['json', 'coffee', 'jade', 'sass', 'watch']);
 gulp.task('editor', ['editorSass']);
 
 gulp.task('build', function() {
-  runSequence(['clean-images'],['fonts','images','photos','thumbs','sounds','spriteSass','autoVariables'],['json', 'fonts','coffee','sass'],['jade']);
+  runSequence(['clean-images'],['fonts','images','largeThumbs','thumbs','sounds','spriteSass','autoVariables'],['json', 'fonts','coffee','sass'],['jade']);
 });
 gulp.task('server', ['connect', 'watch']);
 gulp.task('production', function() {
   env = PRODUCTION;
-  runSequence(['clean-json','clean-images','clean-sounds','clean-css', 'clean-js'],['images','photos','thumbs','sounds','json','fonts'],['coffee','sass'],['jade']);
+  runSequence(['clean-json','clean-images','clean-sounds','clean-css', 'clean-js'],['images','largeThumbs','thumbs','sounds','json','fonts'],['coffee','sass'],['jade']);
 });
 
 //gulp watch --jade=filename

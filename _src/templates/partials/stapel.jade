@@ -1,6 +1,8 @@
 - var w = 308;
 - var h = 200;
-- var albums =[{name: "Γενέθλια", path: 'birthday', imgs: 7, w: 4000, h: 2992}]
+- var lw = 1920;
+- var lh = 1080;
+- var albums =[{name: "Γενέθλια", path: 'birthday', imgs: 7}]
 
 section.main
   .wrapper
@@ -15,7 +17,7 @@ section.main
       each album in albums
         - for (var i=1; i<=album.imgs;i++)
           li(data-pile=album.name)
-            a(href="assets/photos/albums/#{album.path}/thumb#{i}.jpg" data-width=album.w data-height=album.h)
+            a(href="assets/photos/albums/#{album.path}/thumb#{i}-#{lw}x#{lh}.jpg" data-width=lw data-height=lh)
               img(src='assets/photos/albums/#{album.path}/thumb#{i}-thumbnail.jpg')
       each album in [1,2,3,4,5]
         each photo in [1,2,3,4,5,6,7,8]
