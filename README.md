@@ -1,2 +1,2 @@
 #john
-harrissidiropoulos.github.io/john/
+http://harrissidiropoulos.github.io/john/
