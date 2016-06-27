@@ -75,7 +75,7 @@ $pswp__assets-path: '../images/';
   text-align: center;
 }
 .pswp {
-  z-index: 11000;
+  z-index: 11000 !important;
 }
 
 @import "base";
