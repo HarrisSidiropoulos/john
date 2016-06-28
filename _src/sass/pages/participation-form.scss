@@ -1,4 +1,4 @@
-$input-color: lighten($gray-dark, 20%);
+$input-color: rgba(invert($text-color), .6);
 
 .participation-form {
   background: $body-bg;
@@ -189,7 +189,7 @@ input, textarea, .form-group > label {
   height: auto;
 }
 .required {
-  color: darken(white, 30%);
+  color: rgba($text-color, .5);
 }
 .all-required {
   margin-top: 15px;

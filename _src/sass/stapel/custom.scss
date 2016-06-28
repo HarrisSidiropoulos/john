@@ -21,7 +21,7 @@
 	border-radius: 50%;
 	text-align: center;
 	line-height: 38px;
-	color: #999;
+	color: rgba(invert($text-color), .9);
 	background: rgba($text-color,0.8);
 	cursor: pointer;
 	display: none;
@@ -34,7 +34,6 @@
 }
 
 .no-touch .back:hover {
-	background: #fff;
 	background: rgba($text-color,0.9);
 }
 
@@ -55,7 +54,7 @@
 .topbar h3 {
 	text-align: right;
 	padding-left: 20px;
-	color: #aaa;
+	color: rgba($text-color, .7);
 }
 
 /* Loader */

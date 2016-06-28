@@ -42,7 +42,7 @@
 	position: absolute;
 	background: #fff;
 	line-height: 20px;
-	color: #333;
+	color: rgba(invert($text-color), .6);
 	top: 40%;
 	width: 75%;
 	padding: 10px;
