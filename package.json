@@ -69,6 +69,7 @@
     "jquery-touch-events": "git+https://github.com/benmajor/jQuery-Touch-Events.git",
     "jquery.browser": "^0.1.0",
     "jquery.transit": "^0.9.12",
+    "lodash": "^4.13.1",
     "photoswipe": "^4.0.7"
   },
   "scripts": {

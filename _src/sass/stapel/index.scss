@@ -16,3 +16,19 @@
 .wrapper {
   margin: 0 -15px;
 }
+.tp-grid li a {
+  width: 320px;
+  height: 200px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: $screen-md-max) {
+    width: 250px;
+    height: 156px;
+  }
+  @media (max-width: $screen-sm-max) {
+    width: 300px;
+    height: 187px;
+  }
+}

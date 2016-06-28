@@ -11,6 +11,7 @@
 global.$ = global.jQuery = $ = require("jquery");
 var PhotoSwipe = require("photoswipe");
 var PhotoSwipeUI_Default = require("photoswipe/dist/photoswipe-ui-default");
+var throttle = require('lodash/throttle');
 
 $("body").append(require("./photoswipe-template.jade"))
 
@@ -768,11 +769,11 @@ $("body").append(require("./photoswipe-template.jade"))
 
 		},
 		_resize : function() {
-
 			// get ul size again
-			this._getSize();
-			// reset items positions
-			this._setItemsPosition();
+      this._getSize();
+      this.itemSize = { width : this.items.outerWidth( true ) , height : this.items.outerHeight( true ) };
+        // reset items positions
+      this._setItemsPosition();
 
 		},
 		_applyTransition : function( el, styleCSS, speed, fncomplete ) {
