@@ -271,6 +271,7 @@ gulp.task('photos', function() {
 });
 gulp.task("thumbs", function () {
   var metr = 1;
+  var dirname = "";
   gulp.src(MOCKUPS+"/photos/**")
     .pipe(parallel(
       imageResize({ width : 320, height: 200, crop: true }),
@@ -278,6 +279,10 @@ gulp.task("thumbs", function () {
     ))
     .pipe(rename(function (path) {
       if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
+        if (path.dirname != dirname) {
+          metr = 1;
+        }
+        dirname = path.dirname;
         path.basename = "thumb"+metr+"-thumbnail";
         metr++;
       } else {
@@ -289,15 +294,21 @@ gulp.task("thumbs", function () {
 
 gulp.task("largeThumbs", function () {
   var metr = 1;
+  var dirname = "";
   gulp.src(MOCKUPS+"/photos/**")
     .pipe(parallel(
-      imageResize({ width : 1920, height: 1080, crop: true }),
+      imageResize({ width : 1920, height: 1080, crop: true, upscale: true }),
       os.cpus().length
     ))
     .pipe(rename(function (path) {
       if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
+        if (path.dirname != dirname) {
+          metr = 1;
+        }
+        dirname = path.dirname;
         path.basename = "thumb"+metr+"-1920x1080";
         metr++;
+
       } else {
         metr=1;
       }
