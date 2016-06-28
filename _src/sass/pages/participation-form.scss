@@ -1,0 +1,204 @@
+$input-color: lighten($gray-dark, 20%);
+
+.participation-form {
+  background: $body-bg;
+  margin-bottom: 0;
+  padding-bottom: 30px;
+  min-height: 340px;
+  .carousel {
+    padding: 0;
+  }
+  .carousel-caption {
+    padding: 0;
+    position: static;
+    text-align: left;
+    text-shadow: none;
+  }
+  h3 {
+    color: white;
+    padding: 20px 0 20px;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+
+  .btn-default {
+    background: none;
+    border: none;
+    color: white;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+  .btn-primary {
+    color: white;
+  }
+  hr {
+    margin: 0 0 30px;
+    border-bottom: 1px dotted white;
+  }
+  .button-more {
+    padding: 5px 0 ;
+    .caret {
+      color: white;
+    }
+  }
+  .submit-button {
+    text-align: center;
+    margin-bottom: 30px;
+    .btn-primary {
+      background: none;
+      border-color: white;
+      font-size: 25px;
+      padding: 5px 80px;
+      @media (max-width: $screen-xs-max) {
+        padding: 5px 40px;
+      }
+      &:hover, &:focus {
+        background: white;
+        color: $input-color;
+        outline: none;
+      }
+    }
+  }
+  h1, .h1 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    padding: 120px 0 80px 0;
+    white-space: pre-wrap;
+    @media (max-width: $screen-md-max) {
+      font-size: 40px;
+      padding: 130px 0 80px 0;
+    }
+    @media (max-width: $screen-xs-max) {
+      font-size: 30px;
+      padding: 130px 0 80px 0;
+    }
+  }
+}
+
+$gray-light: lighten(#000, 46.7%) !default; // #777
+$input-color-placeholder: $gray-light !default;
+.select2-container-active .select2-choice, .select2-container-multi.select2-container-active .select2-choices {
+  border-color: white;
+  box-shadow: none;
+}
+.select2-container {
+  height: auto;
+  padding: 0;
+  border-color: white;
+  .select2-search-field {
+    height: 40px !important;
+  }
+  .select2-choice {
+    border: none;
+    height: 38px;
+    font-size: 25px;
+    padding: 5px 10px;
+    color: $input-color;
+  }
+  .select2-arrow {
+    padding-top: 4px;
+  }
+  input {
+    padding: 3px 12px;
+  }
+}
+
+.select2-container-multi {
+  .select2-search-field {
+    height: 38px !important;
+  }
+  .select2-choices {
+    //    height: 38px !important;
+    border-radius: 0;
+    padding-top: 0;
+    .select2-search-field {
+      height: 38px;
+      input {
+        color: $input-color;
+        font-size: 25px;
+        font-weight: normal;
+        font-family: $font-primary;
+        margin-top: 3px;
+      }
+    }
+  }
+}
+
+.select2-results .select2-result-label {
+  color: $input-color;
+}
+.select2-drop.select2-drop-active {
+  border-radius: 0;
+  border-color: white;
+  outline: none;
+  box-shadow: none;
+}
+.select2-results .select2-highlighted {
+  background: $input-color;
+  .select2-result-label {
+    color: white;
+  }
+}
+.select2-container-multi .select2-choices .select2-search-choice {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  line-height: 23px;
+  color: $input-color;
+  border-color: lighten($gray, 30%);
+  .select2-search-choice-close {
+    margin-top: 3px;
+  }
+}
+
+input, textarea, .form-group > label {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.form-group > label {
+  font-size: 14px;
+  color: white;
+  padding: 5px 0;
+  margin: 0 0 10px 0;
+}
+.select2 {
+  margin-top: 10px;
+}
+.form-group > label input, .form-group > label textarea, .select2-chosen {
+  font-size: 16px;
+}
+.form-group > label input, .form-group > label textarea {
+  display: block;
+  margin-top: 10px;
+  height: 40px;
+  outline: none;
+  padding: 10px;
+  color: $input-color;
+  border: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+.form-group > label textarea {
+  height: auto;
+}
+.required {
+  color: darken(white, 30%);
+}
+.all-required {
+  margin-top: 15px;
+  color: white;
+}
+.btn-large {
+  width: 100%;
+  font-size: 25px;
+}
+.screen-reader-response ul {
+  display: none;
+}
