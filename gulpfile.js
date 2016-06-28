@@ -270,31 +270,24 @@ gulp.task('photos', function() {
     .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, gulp.dest(BUILD+'/rev/photos')))
 });
 gulp.task("thumbs", function () {
-  var metr = 1;
-  var dirname = "";
+  var metr = {}
   gulp.src(MOCKUPS+"/photos/**")
     .pipe(parallel(
-      imageResize({ width : 320, height: 200, crop: true }),
+      imageResize({ width : 310, height: 200, crop: true }),
       os.cpus().length
     ))
     .pipe(rename(function (path) {
       if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
-        if (path.dirname != dirname) {
-          metr = 1;
-        }
-        dirname = path.dirname;
-        path.basename = "thumb"+metr+"-thumbnail";
-        metr++;
-      } else {
-        metr=1;
+        if (typeof metr[path.dirname]==="undefined") metr[path.dirname]=1;
+        path.basename = "thumb"+metr[path.dirname]+"-thumbnail";
+        metr[path.dirname]++;
       }
     }))
     .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos'));
 });
 
 gulp.task("largeThumbs", function () {
-  var metr = 1;
-  var dirname = "";
+  var metr = {};
   gulp.src(MOCKUPS+"/photos/**")
     .pipe(parallel(
       imageResize({ width : 1920, height: 1080, crop: true, upscale: true }),
@@ -302,15 +295,10 @@ gulp.task("largeThumbs", function () {
     ))
     .pipe(rename(function (path) {
       if (path.extname===".jpg" || path.extname===".png" || path.extname===".gif") {
-        if (path.dirname != dirname) {
-          metr = 1;
-        }
+        if (typeof metr[path.dirname]==="undefined") metr[path.dirname]=1;
         dirname = path.dirname;
-        path.basename = "thumb"+metr+"-1920x1080";
-        metr++;
-
-      } else {
-        metr=1;
+        path.basename = "thumb"+metr[path.dirname]+"-1920x1080";
+        metr[path.dirname]++;
       }
     }))
     .pipe(gulp.dest(getOutputDir()+ASSETS+'/photos'));
