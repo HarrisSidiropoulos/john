@@ -143,3 +143,22 @@
   padding: 80px 20px;
   text-align: center;
 }
+.pcontainer {
+  position: relative;
+  height: 385px;
+  margin: 50px auto;
+}
+.pleft, .pright {
+  background:url("../images/prosklitirio-left.png") no-repeat;
+  width:400px;
+  height:400px;
+  position: absolute;
+}
+.pleft {
+  left: 23.5%;
+}
+.pright {
+  background:url("../images/prosklitirio-right.png") no-repeat;
+  right: 23.5%;
+  top: 8px;
+}

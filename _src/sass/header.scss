@@ -3,7 +3,7 @@
 @import "mixins";
 
 .header {
-  background-color: rgba(#705080, .9);
+  background-color: rgba($body-bg, .9);
   border-bottom: 1px solid rgba($gray-light, .3);
   width: 100%;
   height: 50px;
