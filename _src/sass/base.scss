@@ -16,6 +16,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4em;
 }
 
+.dark {
+  background-color: darken($body-bg, 5%);
+}
 .darken {
   background-color: darken($body-bg, 10%);
 }
@@ -168,6 +171,10 @@ img {
       }
     }
   }
+}
+
+.row-fix {
+  @extend .row;
 }
 
 .responsive-img {
