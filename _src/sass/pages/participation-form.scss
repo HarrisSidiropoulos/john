@@ -35,7 +35,7 @@ $input-color: rgba(invert($text-color), .6);
   }
   hr {
     margin: 0 0 30px;
-    border-bottom: 1px dotted white;
+    border-bottom: 1px dotted $text-color;
     border-top: 1px dotted darken($body-bg, 10%);
   }
   .button-more {
