@@ -15,8 +15,10 @@ require('./form-carousel.coffee')()
 $('.play-video-btn').bind('click', ()->
   $(this).toggleClass('playing');
   if ($(this).hasClass('playing'))
+    $('video').attr('controls', 'true')
     $('video')[0].play()
   else
+    $('video').removeAttr('controls')
     $('video')[0].pause()
   return false;
 )
