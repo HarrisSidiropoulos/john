@@ -90,11 +90,13 @@ $input-color-placeholder: $gray-light !default;
   height: auto;
   padding: 0;
   border-color: $input-bg-color;
+  box-shadow: none;
   .select2-search-field {
     height: 40px !important;
   }
   .select2-choice {
     border: none;
+    box-shadow: none;
     height: 38px;
     font-size: 25px;
     padding: 5px 10px;
