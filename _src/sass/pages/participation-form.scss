@@ -141,7 +141,7 @@ $input-color-placeholder: $gray-light !default;
 .select2-results .select2-highlighted {
   background: $input-color;
   .select2-result-label {
-    color: $input-bg-color;
+    color: white;
   }
 }
 .select2-container-multi .select2-choices .select2-search-choice {
@@ -166,6 +166,9 @@ input, textarea, .form-group > label {
   color: $input-bg-color;
   padding: 5px 0;
   margin: 0 0 10px 0;
+  & > input, & > textarea {
+    border:1px solid $input-bg-color;
+  }
 }
 .select2 {
   margin-top: 10px;
@@ -180,7 +183,6 @@ input, textarea, .form-group > label {
   outline: none;
   padding: 10px;
   color: $input-color;
-  border: none;
   &:focus {
     outline: none;
     box-shadow: none;
