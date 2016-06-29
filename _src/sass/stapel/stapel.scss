@@ -1,6 +1,8 @@
 @import "custom";
 @import "demo";
 
+$title-color: rgba(darken($body-bg, 40%), .8);
+
 .tp-grid {
 	list-style-type: none;
 	position: relative;
@@ -42,7 +44,7 @@
 	position: absolute;
 	background: #fff;
 	line-height: 20px;
-	color: rgba(invert($text-color), .6);
+	color: rgba($title-color, 1);
 	top: 40%;
 	width: 75%;
 	padding: 10px;
@@ -85,9 +87,9 @@
 }
 
 .tp-title span:nth-child(2){
-	color: #aaa;
+	color: rgba($title-color, .5);
 	padding: 0 5px;
-	background: #F7F7F7;
+	background: rgba($body-bg, .1);
 	right: 0px;
 	height: 100%;
 	line-height: 40px;

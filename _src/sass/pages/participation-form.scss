@@ -1,4 +1,5 @@
-$input-color: rgba(invert($text-color), .6);
+$input-color: rgba(darken($body-bg, 40%), .8);
+$input-bg-color: rgba($text-color, 1);
 
 .participation-form {
   background: $body-bg;
@@ -15,7 +16,7 @@ $input-color: rgba(invert($text-color), .6);
     text-shadow: none;
   }
   h3 {
-    color: white;
+    color: $input-bg-color;
     padding: 20px 0 20px;
     font-size: 40px;
     font-weight: 300;
@@ -25,13 +26,13 @@ $input-color: rgba(invert($text-color), .6);
   .btn-default {
     background: none;
     border: none;
-    color: white;
+    color: $input-bg-color;
     &:hover, &:focus {
       text-decoration: none;
     }
   }
   .btn-primary {
-    color: white;
+    color: $input-bg-color;
   }
   hr {
     margin: 0 0 30px;
@@ -41,7 +42,7 @@ $input-color: rgba(invert($text-color), .6);
   .button-more {
     padding: 5px 0 ;
     .caret {
-      color: white;
+      color: $input-bg-color;
     }
   }
   .submit-button {
@@ -49,25 +50,25 @@ $input-color: rgba(invert($text-color), .6);
     margin-bottom: 30px;
     .btn-primary {
       background: none;
-      border-color: white;
+      border-color: $input-bg-color;
       font-size: 25px;
       padding: 5px 80px;
       @media (max-width: $screen-xs-max) {
         padding: 5px 40px;
       }
       &:hover, &:focus {
-        background: white;
+        background: $input-bg-color;
         color: $input-color;
         outline: none;
       }
     }
   }
   h1, .h1 {
-    color: white;
+    color: $input-bg-color;
     font-size: 50px;
     text-align: center;
     padding: 120px 0 120px 0;
-    white-space: pre-wrap;
+    $input-bg-color-space: pre-wrap;
     @media (max-width: $screen-md-max) {
       font-size: 40px;
       padding: 130px 0 80px 0;
@@ -82,13 +83,13 @@ $input-color: rgba(invert($text-color), .6);
 $gray-light: lighten(#000, 46.7%) !default; // #777
 $input-color-placeholder: $gray-light !default;
 .select2-container-active .select2-choice, .select2-container-multi.select2-container-active .select2-choices {
-  border-color: white;
+  border-color: $input-bg-color;
   box-shadow: none;
 }
 .select2-container {
   height: auto;
   padding: 0;
-  border-color: white;
+  border-color: $input-bg-color;
   .select2-search-field {
     height: 40px !important;
   }
@@ -133,14 +134,14 @@ $input-color-placeholder: $gray-light !default;
 }
 .select2-drop.select2-drop-active {
   border-radius: 0;
-  border-color: white;
+  border-color: $input-bg-color;
   outline: none;
   box-shadow: none;
 }
 .select2-results .select2-highlighted {
   background: $input-color;
   .select2-result-label {
-    color: white;
+    color: $input-bg-color;
   }
 }
 .select2-container-multi .select2-choices .select2-search-choice {
@@ -162,7 +163,7 @@ input, textarea, .form-group > label {
 
 .form-group > label {
   font-size: 14px;
-  color: white;
+  color: $input-bg-color;
   padding: 5px 0;
   margin: 0 0 10px 0;
 }
@@ -194,7 +195,7 @@ input, textarea, .form-group > label {
 }
 .all-required {
   margin-top: 15px;
-  color: white;
+  color: $input-bg-color;
 }
 .btn-large {
   width: 100%;

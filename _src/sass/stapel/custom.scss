@@ -21,7 +21,6 @@
 	border-radius: 50%;
 	text-align: center;
 	line-height: 38px;
-	color: rgba(invert($text-color), .9);
 	background: rgba($text-color,0.8);
 	cursor: pointer;
 	display: none;
@@ -31,6 +30,9 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+	color: rgba(darken($body-bg, 40%), .8) !important;
+
 }
 
 .no-touch .back:hover {
