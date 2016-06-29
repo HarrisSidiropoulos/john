@@ -15,18 +15,18 @@ section.article.participation-form#form(data-action="sendmail.php")
                     .form-group.col-sm-12
                       label.text-uppercase Ονοματεπώνυμο &nbsp;
                         span.required (υποχρεωτικό)
-                        input(type="text" required="required" id="name" name="name")
+                        input(type="text" required="required" id="lastname" name="lastname")
                     .form-group.col-sm-12
                       label.text-uppercase Θα παραυρεθούμε &nbsp;
                         span.required (υποχρεωτικό)
                         br
-                        select.select-age.form-control.select2(id="age")
+                        select.select-age.form-control.select2(id="isComing")
                           option(value="Ναι") Ναι
                           option(value="Όχι") Όχι
                 .form-group.col-sm-6
                   label.text-uppercase Ευχές &nbsp;
                     span.required (προαιρετικό)
-                    textarea(type="email" required="required" id="email" name="email")
+                    textarea(type="email" required="required" id="wishes" name="wishes")
 
                 .col-sm-12
                   hr
