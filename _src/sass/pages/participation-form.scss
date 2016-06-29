@@ -5,7 +5,7 @@ $input-bg-color: rgba($text-color, 1);
   background: $body-bg;
   margin-bottom: 0;
   padding-bottom: 30px;
-  min-height: 340px;
+  min-height: 436px;
   .carousel {
     padding: 0;
   }
@@ -14,6 +14,7 @@ $input-bg-color: rgba($text-color, 1);
     position: static;
     text-align: left;
     text-shadow: none;
+    min-height: 436px;
   }
   h3 {
     color: $input-bg-color;
@@ -63,19 +64,25 @@ $input-bg-color: rgba($text-color, 1);
       }
     }
   }
+  .thankyou-container {
+    position: relative;
+    height: 100%;
+    min-height: 436px;
+  }
   h1, .h1 {
     color: $input-bg-color;
     font-size: 50px;
     text-align: center;
-    padding: 120px 0 120px 0;
     $input-bg-color-space: pre-wrap;
+    position: absolute;
+    top: 50%;
+    margin-top: -.7em;
+    width: 100%;
     @media (max-width: $screen-md-max) {
       font-size: 40px;
-      padding: 190px 0 160px 0;
     }
     @media (max-width: $screen-xs-max) {
       font-size: 30px;
-      padding: 130px 0 80px 0;
     }
   }
 }
