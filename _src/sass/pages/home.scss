@@ -60,10 +60,10 @@
   text-align: center;
   bottom: 0;
   a {
-    color: white;
+    color: $text-color;
     &:hover, &:focus {
       text-decoration: none;
-      color: white;
+      color: $text-color;
     }
     .section-image-more-btn-txt {
       padding: 5px 0;
@@ -122,7 +122,7 @@
     display: table;
     @include transition(  all .3s ease-in-out );
     .text {
-      color: white;
+      color: $text-color;
       display: table-cell;
       vertical-align: middle;
       &:hover, &:focus {
