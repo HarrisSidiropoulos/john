@@ -10,3 +10,13 @@ require "bootstrap/assets/javascripts/bootstrap/tooltip"
 require('./init-stapel.coffee')()
 require('./menu.coffee')()
 require('./form-carousel.coffee')()
+
+
+$('.play-video-btn').bind('click', ()->
+  $(this).toggleClass('playing');
+  if ($(this).hasClass('playing'))
+    $('video')[0].play()
+  else
+    $('video')[0].pause()
+  return false;
+)

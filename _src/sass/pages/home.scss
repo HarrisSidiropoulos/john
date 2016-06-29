@@ -113,6 +113,10 @@
   @media (max-width: $screen-sm-max) {
     margin-top: 20px;
   }
+  video {
+    width: calc(100% - 2px);
+    height: 100%;
+  }
   h5 {
     position: absolute;
     bottom: 0;
@@ -133,11 +137,14 @@
       }
     }
     &.full {
+      background-color: rgba(darken($body-bg, 10%), .2);
       height: 100%;
       width: 100%;
     }
   }
-
+  .playing .full {
+    display: none;
+  }
 }
 .page-description {
   max-width: 512px;

@@ -322,26 +322,14 @@ gulp.task('clean-json', function() {
     .pipe(gulpif(env === PRODUCTION, vinylPaths(del).on('error', gutil.log)))
 });
 
-gulp.task('sounds', function() {
-  return gulp.src([MOCKUPS+'/sounds/*.mp3'])
-    .pipe(duration('sounds'))
+gulp.task('video', function() {
+  return gulp.src([MOCKUPS+'/video/*.mp4'])
+    .pipe(duration('video'))
     .pipe(flatten().on('error', gutil.log))
     .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, rev()))
-    .pipe(gulp.dest(getOutputDir()+ASSETS+'/sounds').on('error', gutil.log))
+    .pipe(gulp.dest(getOutputDir()+ASSETS+'/video').on('error', gutil.log))
     .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, rev.manifest()))
-    .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, gulp.dest(BUILD+'/rev/sounds')))
-});
-gulp.task('clean-sounds', function() {
-  return new Promise(function (resolve, reject) {
-    var vp = vinylPaths();
-
-    gulp.src(getOutputDir()+ASSETS+'/sounds')
-      .pipe(vp)
-      .pipe(gulp.dest(getOutputDir()+ASSETS+'/sounds'))
-      .on('end', function () {
-        del(vp.paths).then(resolve).catch(reject);
-      });
-  });
+    .pipe(gulpif(env === PRODUCTION && USE_FINGERPRINTING, gulp.dest(BUILD+'/rev/video')))
 });
 
 gulp.task('fonts', function() {
@@ -380,12 +368,12 @@ gulp.task('live', ['json', 'coffee', 'jade', 'sass', 'watch']);
 gulp.task('editor', ['editorSass']);
 
 gulp.task('build', function() {
-  runSequence(['clean-images'],['fonts','images','largeThumbs','thumbs','sounds','spriteSass','autoVariables'],['json', 'fonts','coffee','sass'],['jade']);
+  runSequence(['clean-images'],['fonts','images','largeThumbs','thumbs','video','spriteSass','autoVariables'],['json', 'fonts','coffee','sass'],['jade']);
 });
 gulp.task('server', ['connect', 'watch']);
 gulp.task('production', function() {
   env = PRODUCTION;
-  runSequence(['images','largeThumbs','thumbs','sounds','json','fonts'],['coffee','sass'],['jade']);
+  runSequence(['images','largeThumbs','thumbs','video','json','fonts'],['coffee','sass'],['jade']);
 });
 
 //gulp watch --jade=filename
