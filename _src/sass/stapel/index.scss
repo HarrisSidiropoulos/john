@@ -6,6 +6,7 @@
   box-shadow: none;
   min-height: 76px;
   margin-top: 40px;
+  overflow-x: hidden;
   h2, h3 {
     margin: 10px 0;
   }
@@ -16,6 +17,7 @@
 .wrapper {
   margin: 0 -15px;
   padding-bottom: 70px;
+  overflow-x: hidden;
 }
 .tp-grid li a {
   width: 320px;
@@ -29,7 +31,27 @@
     height: 156px;
   }
   @media (max-width: $screen-sm-max) {
-    width: 300px;
-    height: 187px;
+    width: 296px;
+    height: 200px;
+  }
+  @media (max-width: $screen-sm-min - 1) {
+    width: 310px;
+    height: 190px;
+  }
+  @media (max-width: 435px) {
+    width: 345px;
+    height: 215px;
+  }
+  @media (max-width: 411px) {
+    width: 320px;
+    height: 200px;
+  }
+  @media (max-width: 375px) {
+    width: 280px;
+    height: 180px;
+  }
+  @media (max-width: 320px) {
+    width: 230px;
+    height: 150px;
   }
 }

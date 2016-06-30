@@ -57,7 +57,7 @@ header.navbar {
       border-right: 1px solid rgba($text-color, $border-alpha);
     }
   }
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-sm - 1) {
     .navbar-collapse {
       position: absolute;
       background: $body-bg;
