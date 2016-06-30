@@ -28,8 +28,10 @@ $('.play-video-btn video').on('ended',() ->
   $(this).removeAttr('controls')
 );
 
-
-$('#home').height($(window).height())
-$(window).bind('resize', ()->
+if $(window).height()<=768
   $('#home').height($(window).height())
-)
+  window.addEventListener("orientationchange", ()->
+    setTimeout(()->
+      $('#home').height($(window).height())
+    , 128)
+  )
