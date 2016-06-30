@@ -21,5 +21,6 @@ module.exports = ()->
   $('.navbar .navbar-nav a').each(()->
     $(this).bind('click', ()->
       scroll($(this))
+      $('.navbar-collapse').collapse('hide')
     )
   )
