@@ -20,7 +20,9 @@ module.exports = ()->
   )
   $('.navbar .navbar-nav a').each(()->
     $(this).bind('click', ()->
+      if $(window).width() < 767
+        console.log($(window).width())
+        $('.navbar-collapse').collapse('hide')
       scroll($(this))
-      $('.navbar-collapse').collapse('hide')
     )
   )
