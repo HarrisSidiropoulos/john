@@ -12,14 +12,14 @@ module.exports = ()->
     formCarousel.carousel('pause')
 
     formCarousel.find('.send').bind('click', (e)->
+      errorMessage = "Παρακαλώ πληκτρολογήστε ένα όνομα"
       lastname = $('#lastname').val();
       isComing = $('#isComing').val();
       wishes = $('#wishes').val();
-      if ((lastname == "") || (isComing == ""))
-        if (lastname=="")
-          $('#lastname').val("Παρακαλώ πληκτρολογήστε ένα όνομα")
-          $('#lastname').select()
-          $('#lastname').focus()
+      if ((lastname == "" || lastname==errorMessage))
+        $('#lastname').val(errorMessage)
+        $('#lastname').select()
+        $('#lastname').focus()
         return
       else
         formCarousel.carousel('next')
