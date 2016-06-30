@@ -188,17 +188,20 @@ input, textarea, .form-group > label {
 .form-group > label input, .form-group > label textarea, .select2-chosen {
   font-size: 16px;
 }
-.form-group > label input, .form-group > label textarea {
+.form-group > label input, .form-group > label textarea, .form-group > label select {
   display: block;
   margin-top: 10px;
   height: 40px;
-  outline: none;
   padding: 10px;
   color: $input-color;
+  outline: none;
+  box-shadow: none;
   &:focus {
     outline: none;
-    box-shadow: none;
-    border: none;
+    //box-shadow: none;
+    //border: 1px solid $input-color;
+    box-shadow: rgba($input-color, .6) 0 0 8px;
+    -webkit-box-shadow: rgba($input-color, .6) 0 0 8px;
   }
 }
 .form-group > label textarea {
@@ -217,4 +220,19 @@ input, textarea, .form-group > label {
 }
 .screen-reader-response ul {
   display: none;
+}
+
+select.form-control {
+  color: $input-color;
+  margin-top: 10px;
+  border: none;
+  box-shadow: none;
+  height: 40px;
+  border-radius: 0 !important;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#{$input-color}' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+  background-position: 99% 50%;
+  background-repeat: no-repeat;
+  background-color: $input-bg-color;
 }
