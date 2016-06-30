@@ -27,3 +27,9 @@ $('.play-video-btn video').on('ended',() ->
   $(this).parent().removeClass('playing')
   $(this).removeAttr('controls')
 );
+
+
+$('#home').height($(window).height())
+$(window).bind('resize', ()->
+  $('#home').height($(window).height())
+)
