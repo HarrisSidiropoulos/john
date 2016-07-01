@@ -7,12 +7,14 @@ validateEmail = (email) ->
 
 module.exports = ()->
   if ($('.participation-form .carousel').length>0)
+    errorMessage = "Παρακαλώ πληκτρολογήστε ένα όνομα"
     formCarousel = $('.participation-form .carousel')
     formCarousel.carousel({interval: 2000000})
     formCarousel.carousel('pause')
-
+    $('#lastname').bind('focusout', ()->
+      $('#lastname').val '' if $('#lastname').val()==errorMessage
+    )
     formCarousel.find('.send').bind('click', (e)->
-      errorMessage = "Παρακαλώ πληκτρολογήστε ένα όνομα"
       lastname = $('#lastname').val();
       isComing = $('#isComing').val();
       wishes = $('#wishes').val();
