@@ -197,7 +197,7 @@
     }
     text-align: center;
     hr {
-      border-color: rgba(darken($body-bg, 40%), .8);
+      border-color: rgba(lighten($body-bg, 60%), .8);
       margin: 4px 10%;
     }
     .time {
@@ -208,7 +208,7 @@
       font-size: 10px;
     }
     .title {
-      color: rgba(darken($body-bg, 40%), .8);
+      color: rgba(lighten($body-bg, 60%), .8);
       font-size: 20px;
     }
   }
