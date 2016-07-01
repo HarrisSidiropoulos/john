@@ -11,7 +11,7 @@ module.exports = ()->
     formCarousel = $('.participation-form .carousel')
     formCarousel.carousel({interval: 2000000})
     formCarousel.carousel('pause')
-    $('#lastname').bind('focusout, click', ()->
+    $('#lastname').on('focusout click', ()->
       $('#lastname').val '' if $('#lastname').val()==errorMessage
     )
     formCarousel.find('.send').bind('click', (e)->
