@@ -118,6 +118,14 @@
     width: calc(100% - 2px);
     height: 100%;
   }
+  .full {
+    background: rgba(darken($body-bg, 10%), .2) no-repeat 57% center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(100% - 1px);
+  }
   h5 {
     position: absolute;
     bottom: 0;
@@ -138,7 +146,7 @@
       }
     }
     &.full {
-      background: rgba(darken($body-bg, 10%), .2) no-repeat 57% center;
+      background: rgba(darken($body-bg, 10%), .3) no-repeat 57% center;
       height: 100%;
       width: 100%;
     }
